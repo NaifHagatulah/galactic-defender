@@ -1,9 +1,63 @@
-﻿  SpaceInvadersGL.cpp
+﻿  game.cpp
+  playerMovement.cpp
+  SpaceInvadersGL.cpp
 C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'SpaceInvadersGL.cpp')
+  (compiling source file 'src/playerMovement.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
       see declaration of 'std::runtime_error'
       C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
-  SpaceInvadersGL.vcxproj -> C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\x64\Debug\SpaceInvadersGL.exe
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(14,35): error C2440: 'initializing': cannot convert from 'const bool' to 'sf::Keyboard::Key'
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(14,35):
+      Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or parenthesized function-style cast)
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(19,28): error C2039: 'Left': is not a member of 'sf::Keyboard'
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\Window\Keyboard.hpp(41,11):
+      see declaration of 'sf::Keyboard'
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(19,28): error C2065: 'Left': undeclared identifier
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(19,28): error C2131: expression did not evaluate to a constant
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(19,28):
+      a non-constant (sub-)expression was encountered
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(22,28): error C2039: 'Right': is not a member of 'sf::Keyboard'
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\Window\Keyboard.hpp(41,11):
+      see declaration of 'sf::Keyboard'
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(22,28): error C2065: 'Right': undeclared identifier
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(22,28): error C2131: expression did not evaluate to a constant
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(22,28):
+      a non-constant (sub-)expression was encountered
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(25,28): error C2039: 'Up': is not a member of 'sf::Keyboard'
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\Window\Keyboard.hpp(41,11):
+      see declaration of 'sf::Keyboard'
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(25,28): error C2065: 'Up': undeclared identifier
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(25,28): error C2131: expression did not evaluate to a constant
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(25,28):
+      a non-constant (sub-)expression was encountered
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(28,28): error C2039: 'Down': is not a member of 'sf::Keyboard'
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\Window\Keyboard.hpp(41,11):
+      see declaration of 'sf::Keyboard'
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(28,28): error C2065: 'Down': undeclared identifier
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(28,28): error C2131: expression did not evaluate to a constant
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(28,28):
+      a non-constant (sub-)expression was encountered
+  
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(19,28): error C2051: case expression not constant
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(22,28): error C2051: case expression not constant
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(25,28): error C2051: case expression not constant
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(28,28): error C2051: case expression not constant
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\SpaceInvadersGL\src\playerMovement.cpp(33,9): warning C4065: switch statement contains 'default' but no 'case' labels
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'src/SpaceInvadersGL.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
+      see declaration of 'std::runtime_error'
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+  Generating Code...

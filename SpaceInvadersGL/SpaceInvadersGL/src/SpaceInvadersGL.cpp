@@ -1,10 +1,5 @@
-
+﻿
 #include <cstdio>
-
-
-
-
-
 
 #include <iostream>
 
@@ -13,20 +8,28 @@
 int main()
 {
     sf::RenderWindow window(sf::VideoMode({ 200, 200 }), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::CircleShape shape(50.f);
 
+    shape.setFillColor(sf::Color::Green);
+    sf::Vector2f  position(20.f, 15.f);
+    shape.setPosition(position);
+    
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
-        }
-
+            if (event->is<sf::Event::KeyPressed>())
+                position.x += 2.f;
+            
+        }        
         window.clear();
         window.draw(shape);
         window.display();
+
+        
+        
     }
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
