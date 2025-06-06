@@ -4,7 +4,7 @@
 
 
 // You can customize these “step sizes” however you like:
-static constexpr float PLAYER_SPEED = 2.f;
+static constexpr float PLAYER_SPEED = 0.5f;
 
 void handlePlayerMovement(const sf::Event& evt, sf::Vector2f& velocity)
 {
@@ -36,15 +36,23 @@ void handlePlayerMovement(const sf::Event& evt, sf::Vector2f& velocity)
     {
         switch (keyEvt->code)
         {
-        case sf::Keyboard::Key::Left:
+        case sf::Keyboard::Key::Left: 
+            if (velocity.x < 0)
+                velocity.x += PLAYER_SPEED;
+                break;
+        
         case sf::Keyboard::Key::Right:
-            // Either left or right was released → stop horizontal motion
-            velocity.x = 0.f;
+            if (velocity.x > 0)
+                velocity.x -= PLAYER_SPEED;
             break;
+            
         case sf::Keyboard::Key::Up:
+            if (velocity.y < 0)
+                velocity.y += PLAYER_SPEED;
+            break;
         case sf::Keyboard::Key::Down:
-            // Either up or down was released → stop vertical motion
-            velocity.y = 0.f;
+            if (velocity.y > 0)
+                velocity.y -= PLAYER_SPEED;
             break;
         default:
             break;
