@@ -134,14 +134,17 @@
   <ItemGroup>
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\playerMovement.cpp" />
+    <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\SpaceInvadersGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\green.png" />
     <Image Include="assets\pixil-frame-0.png" />
     <Image Include="include\pixil-frame-0.png" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\playerMovement.hpp" />
+    <ClInclude Include="include\ResourceManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

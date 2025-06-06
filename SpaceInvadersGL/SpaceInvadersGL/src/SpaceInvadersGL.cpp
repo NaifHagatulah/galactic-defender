@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
+#include "../include/ResourceManager.hpp"
 #include "../include/playerMovement.hpp"
 
 int main()
@@ -12,12 +13,13 @@ int main()
     
     //sf::CircleShape shape(50.f);
 
-    sf::Texture playerTexture;
-    if (!playerTexture.loadFromFile("assets\\green.png")) {
-        std::cerr << "Failed to load player.png\n";
-        return 1;
-    }
-    sf::Sprite playerSprite(playerTexture);             // default‐constructed, no texture yet
+               // default‐constructed, no texture yet
+
+    // Before the game loop
+    ResourceManager::loadTexture("player", "assets\\green.png");
+
+    // Inside game loop setup
+    sf::Sprite playerSprite(ResourceManager::getTexture("player"));
     
     sf::Vector2f  position(20.f, 15.f);
     sf::Vector2f velocity(0.f, 0.f);

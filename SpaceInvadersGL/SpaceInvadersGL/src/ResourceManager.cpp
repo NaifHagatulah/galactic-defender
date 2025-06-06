@@ -16,4 +16,11 @@ void ResourceManager::loadTexture(const std::string& name, const std::string& fi
     }
     
 }
+sf::Texture& ResourceManager::getTexture(const std::string& name) {
+    return textures.at(name);
+}
+
+void ResourceManager::clear() {
+    textures.clear();
+}
 
