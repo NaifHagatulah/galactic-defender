@@ -1,40 +1,53 @@
-// playerMovement.cpp
-#include "../include/playerMovement.hpp"
+﻿// playerMovement.cpp
 #include <SFML/Graphics.hpp>
+#include "../include/playerMovement.hpp"
 
-// You can customize these �step sizes� however you like:
+
+// You can customize these “step sizes” however you like:
 static constexpr float PLAYER_SPEED = 2.f;
 
-void handlePlayerMovement(const sf::Event& evt, sf::Vector2f& position)
+void handlePlayerMovement(const sf::Event& evt, sf::Vector2f& velocity)
 {
-    // Try to extract a KeyPressed event; get_if returns nullptr if it's not KeyPressed.
+    // 1) If it’s a KeyPressed event, set the appropriate velocity component:
     if (const auto* keyEvt = evt.getIf<sf::Event::KeyPressed>())
     {
-        // keyEvt->key is the actual sf::Keyboard::Key enum value
-        sf::Keyboard::Key keyCode = keyEvt->code;
-        
 
-        // Move based on which arrow was pressed:
-        switch (keyCode)
+        switch (keyEvt->code)
         {
-        case sf::Keyboard::Left:
-            position.x -= 2.f;
+        case sf::Keyboard::Key::Left:
+            velocity.x = -PLAYER_SPEED;
             break;
-        case sf::Keyboard::Right:
-            position.x += 2.f;
+        case sf::Keyboard::Key::Right:
+            velocity.x = PLAYER_SPEED;
             break;
-        case sf::Keyboard::Up:
-            position.y -= 2.f;
+        case sf::Keyboard::Key::Up:
+            velocity.y = -PLAYER_SPEED;
             break;
-        case sf::Keyboard::Down:
-            position.y += 2.f;
+        case sf::Keyboard::Key::Down:
+            velocity.y = PLAYER_SPEED;
+            break;
+        default:
+            // If you have other keys (e.g. “Jump”), you can handle them here.
+            break;
+        }
+    }
+    // 2) If it’s a KeyReleased event, zero out that component:
+    else if (const auto* keyEvt = evt.getIf<sf::Event::KeyReleased>())
+    {
+        switch (keyEvt->code)
+        {
+        case sf::Keyboard::Key::Left:
+        case sf::Keyboard::Key::Right:
+            // Either left or right was released → stop horizontal motion
+            velocity.x = 0.f;
+            break;
+        case sf::Keyboard::Key::Up:
+        case sf::Keyboard::Key::Down:
+            // Either up or down was released → stop vertical motion
+            velocity.y = 0.f;
             break;
         default:
             break;
         }
-
-        // If you need to know if Ctrl was held down:
-        bool wasControlHeld = keyEvt->control;
-        // �do something with wasControlHeld if needed�
     }
 }

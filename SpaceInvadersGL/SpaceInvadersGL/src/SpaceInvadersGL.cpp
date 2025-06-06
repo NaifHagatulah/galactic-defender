@@ -4,14 +4,23 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
+#include "../include/playerMovement.hpp"
+
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({ 200, 200 }), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode({ 500, 500 }), "SFML works!");
     sf::CircleShape shape(50.f);
+
+    sf::Texture playerTexture;
+    if (!playerTexture.loadFromFile("pixil - frame - 0.png")) {
+        std::cerr << "Failed to load player.png\n";
+        return 1;
+    }
 
     shape.setFillColor(sf::Color::Green);
     sf::Vector2f  position(20.f, 15.f);
+    sf::Vector2f velocity(0.f, 0.f);
     shape.setPosition(position);
     
     while (window.isOpen())
@@ -20,10 +29,14 @@ int main()
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
-            if (event->is<sf::Event::KeyPressed>())
-                position.x += 2.f;
-            
-        }        
+            if (event->is<sf::Event::KeyPressed>() || event->is<sf::Event::KeyReleased>())
+            {
+                handlePlayerMovement(*event, velocity);
+            }
+        }   
+        position += velocity;
+        shape.setPosition(position);
+
         window.clear();
         window.draw(shape);
         window.display();
@@ -31,7 +44,9 @@ int main()
         
         
     }
+
 }
+
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
