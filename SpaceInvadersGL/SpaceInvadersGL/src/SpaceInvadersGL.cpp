@@ -6,22 +6,23 @@
 #include <SFML/Graphics.hpp>
 #include "../include/playerMovement.hpp"
 
-
 int main()
 {
     sf::RenderWindow window(sf::VideoMode({ 500, 500 }), "SFML works!");
-    sf::CircleShape shape(50.f);
+    
+    //sf::CircleShape shape(50.f);
 
     sf::Texture playerTexture;
-    if (!playerTexture.loadFromFile("pixil - frame - 0.png")) {
+    if (!playerTexture.loadFromFile("assets\\green.png")) {
         std::cerr << "Failed to load player.png\n";
         return 1;
     }
-
-    shape.setFillColor(sf::Color::Green);
+    sf::Sprite playerSprite(playerTexture);             // default‐constructed, no texture yet
+    
     sf::Vector2f  position(20.f, 15.f);
     sf::Vector2f velocity(0.f, 0.f);
-    shape.setPosition(position);
+    
+    playerSprite.setPosition(position);
     
     while (window.isOpen())
     {
@@ -29,20 +30,19 @@ int main()
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
+
             if (event->is<sf::Event::KeyPressed>() || event->is<sf::Event::KeyReleased>())
             {
                 handlePlayerMovement(*event, velocity);
             }
         }   
-        position += velocity;
-        shape.setPosition(position);
-
-        window.clear();
-        window.draw(shape);
-        window.display();
-
         
-        
+        playerSprite.move(velocity);
+
+        window.clear(sf::Color(30, 30, 30));
+        window.draw(playerSprite);
+       
+        window.display(); 
     }
 
 }
