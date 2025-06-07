@@ -43,7 +43,6 @@ int main()
 
         window.clear(sf::Color(30, 30, 30));
         window.draw(playerSprite);
-       
         window.display(); 
     }
 
