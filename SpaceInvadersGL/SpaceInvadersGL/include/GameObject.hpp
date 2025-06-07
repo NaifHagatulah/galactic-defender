@@ -9,6 +9,6 @@ public:
 	
 	virtual void draw(sf::RenderWindow& target) const = 0;
 
-	virtual bool isAlive();
+	//virtual bool isAlive();
 
 };

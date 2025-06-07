@@ -6,28 +6,40 @@
 #include <SFML/Graphics.hpp>
 #include "../include/ResourceManager.hpp"
 #include "../include/playerMovement.hpp"
+#include "../include/player.hpp"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode({ 700, 700 }), "SFML works!");
+    window.setFramerateLimit(60);
     
-    //sf::CircleShape shape(50.f);
-
-               // default‐constructed, no texture yet
+    // Load your texture once
+   
 
     // Before the game loop
     ResourceManager::loadTexture("player", "assets\\green.png");
+    auto& playerTexture = ResourceManager::getTexture("player");
 
     // Inside game loop setup
-    sf::Sprite playerSprite(ResourceManager::getTexture("player"));
+    sf::Sprite playerSprite(playerTexture);
+   
     
     sf::Vector2f  position(20.f, 15.f);
     sf::Vector2f velocity(0.f, 0.f);
+
     
-    playerSprite.setPosition(position);
+
+    // Create a player at (100,100) with speed 200 units/sec
+    Player player{ playerTexture, position, 100.f };
+
+    player.draw(window);
     
+
+    //playerSprite.setPosition(position*30.f);
+    sf::Clock clock;
     while (window.isOpen())
     {
+        float dt = clock.restart().asSeconds();
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
@@ -35,14 +47,16 @@ int main()
 
             if (event->is<sf::Event::KeyPressed>() || event->is<sf::Event::KeyReleased>())
             {
-                handlePlayerMovement(*event, velocity);
+                player.handleInput(*event);
             }
         }   
         
         playerSprite.move(velocity);
 
         window.clear(sf::Color(30, 30, 30));
-        window.draw(playerSprite);
+        player.update(dt);
+        
+        player.draw(window);
         window.display(); 
     }
 
