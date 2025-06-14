@@ -9,6 +9,7 @@ Game::Game()
 
     // Load textures
     ResourceManager::loadTexture("player", "assets\\green.png");
+    ResourceManager::loadTexture("bullet", "assets\\bullet.png");
     auto& playerTexture = ResourceManager::getTexture("player");
 
     // Spawn player
@@ -89,7 +90,7 @@ void Game::processEvents() {
 }
 
 void Game::spawnBullet(const sf::Vector2f& pos) {
-    auto& tex = ResourceManager::getTexture("player");
+    auto& tex = ResourceManager::getTexture("bullet");
     sf::Vector2f vel{ 0.f, -BULLET_SPEED };
     auto bullet = std::make_unique<Projectile>(tex, pos, vel);
     m_objects.push_back(std::move(bullet));

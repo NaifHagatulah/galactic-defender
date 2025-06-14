@@ -74,7 +74,7 @@ void Player::handleInput(const sf::Event& evt) {
 void Player::tryShoot()
 {
     if (m_shootCooldown > 0.f) return;
-    m_shootCooldown = 10.f;
+    m_shootCooldown = 1.f;
 
     if (!m_onShoot)
         throw std::runtime_error("Shoot callback not set");
@@ -82,7 +82,7 @@ void Player::tryShoot()
     // spawn at top-center of sprite
     auto pos = m_sprite.getPosition();
     sf::FloatRect bounds = m_sprite.getGlobalBounds();
-    sf::Vector2f spawnPos{ pos.x, pos.y - bounds.size.length() / 2.f };
+    sf::Vector2f spawnPos{ pos.x + bounds.size.length() / 4.f, pos.y - bounds.size.length() / 2.f };
     m_onShoot(spawnPos);
 
 }
