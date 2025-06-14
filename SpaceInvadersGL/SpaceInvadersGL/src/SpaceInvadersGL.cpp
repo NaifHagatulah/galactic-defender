@@ -7,9 +7,20 @@
 #include "../include/ResourceManager.hpp"
 #include "../include/playerMovement.hpp"
 #include "../include/player.hpp"
+#include "../include/Game.hpp"
+
 
 int main()
 {
+    try {
+        Game game;
+        game.run();
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << '\n';
+        return EXIT_FAILURE;
+    }
+    return EXIT_SUCCESS;
     sf::RenderWindow window(sf::VideoMode({ 700, 700 }), "SFML works!");
     window.setFramerateLimit(60);
     
@@ -17,6 +28,7 @@ int main()
    
 
     // Before the game loop
+    std::vector<std::unique_ptr<GameObject>>;
     ResourceManager::loadTexture("player", "assets\\green.png");
     auto& playerTexture = ResourceManager::getTexture("player");
 
@@ -30,7 +42,7 @@ int main()
     
 
     // Create a player at (100,100) with speed 200 units/sec
-    Player player{ playerTexture, position, 100.f };
+    Player player{ playerTexture, position, 300.f };
 
     player.draw(window);
     
@@ -54,9 +66,10 @@ int main()
         playerSprite.move(velocity);
 
         window.clear(sf::Color(30, 30, 30));
+
         player.update(dt);
-        
         player.draw(window);
+
         window.display(); 
     }
 

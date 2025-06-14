@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -132,9 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\playerMovement.cpp" />
+    <ClCompile Include="src\Projectile.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\SpaceInvadersGL.cpp" />
   </ItemGroup>
@@ -144,10 +145,12 @@
     <Image Include="include\pixil-frame-0.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Game.hpp" />
     <ClInclude Include="include\GameObject.hpp" />
     <ClInclude Include="include\playerMovement.hpp" />
     <ClInclude Include="include\ResourceManager.hpp" />
     <ClInclude Include="include\Player.hpp" />
+    <ClInclude Include="include\Projectile.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

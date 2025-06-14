@@ -1,10 +1,7 @@
 #include "../include/Player.hpp"
-#include <SFML/Graphics.hpp>
 
-// The constructor definition is now consistent with the header declaration
-Player::Player(const sf::Texture& texture,
-    const sf::Vector2f& position,
-    float speed)
+
+Player::Player(const sf::Texture& texture, const sf::Vector2f& position, float speed)
     : m_sprite(texture)
     , m_speed(speed)
 {
@@ -12,18 +9,14 @@ Player::Player(const sf::Texture& texture,
     m_sprite.setPosition(position);
 }
 
-// FIX 2: Added the 'Player::' scope resolution to all member functions.
-// FIX 3: Added the 'const' keyword to match the header declaration.
 void Player::draw(sf::RenderWindow& target) const {
     target.draw(m_sprite);
 }
 
-// FIX 4: Implemented the update logic.
 void Player::update(float dt) {
-    // Update the player's position based on its velocity and elapsed time
+   
     m_sprite.move(m_velocity * dt);
 
-    // Simple cooldown update
     if (m_shootCooldown > 0.f)
     {
         m_shootCooldown -= dt;
@@ -48,6 +41,9 @@ void Player::handleInput(const sf::Event& evt) {
         case sf::Keyboard::Key::Down:
             m_velocity.y = m_speed;
             break;
+        case sf::Keyboard::Key::Space:
+            tryShoot();
+            break;
         default:
             break;
         }
@@ -56,8 +52,7 @@ void Player::handleInput(const sf::Event& evt) {
     {
         switch (keyEvt->code)
         {
-            // This logic correctly stops movement on one axis without
-            // interfering with the other.
+            
         case sf::Keyboard::Key::Left:
             if (m_velocity.x < 0) m_velocity.x = 0;
             break;
@@ -78,14 +73,25 @@ void Player::handleInput(const sf::Event& evt) {
 
 void Player::tryShoot()
 {
-    // You can add your shooting logic here.
-    // For example, check the cooldown:
-    if (m_shootCooldown <= 0.f)
-    {
-        // Logic to create a bullet...
-        // std::cout << "Pew!" << std::endl;
+    if (m_shootCooldown > 0.f) return;
+    m_shootCooldown = 10.f;
 
-        // Reset the cooldown
-        // m_shootCooldown = 0.5f; // e.g., 0.5 second cooldown
-    }
+    if (!m_onShoot)
+        throw std::runtime_error("Shoot callback not set");
+
+    // spawn at top-center of sprite
+    auto pos = m_sprite.getPosition();
+    sf::FloatRect bounds = m_sprite.getGlobalBounds();
+    sf::Vector2f spawnPos{ pos.x, pos.y - bounds.size.length() / 2.f };
+    m_onShoot(spawnPos);
+
+}
+
+bool Player::isAlive() const
+{
+    return m_alive;
+}
+
+void Player::setShootCallback(std::function<void(sf::Vector2f)> cb) {
+    m_onShoot = std::move(cb);
 }
