@@ -1,4 +1,12 @@
-﻿  Player.cpp
+﻿  Game.cpp
+C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'src/Game.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
+      see declaration of 'std::runtime_error'
+      C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+  Player.cpp
 C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
   (compiling source file 'src/Player.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdexcept(100,30):
@@ -6,4 +14,5 @@ C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\includ
       C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\external\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
+  Generating Code...
   SpaceInvadersGL.vcxproj -> C:\Users\Naifh\code\galactic-defender\SpaceInvadersGL\x64\Debug\SpaceInvadersGL.exe

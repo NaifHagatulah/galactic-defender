@@ -9,7 +9,7 @@ Game::Game()
 
     // Load textures
     ResourceManager::loadTexture("player", "assets\\green.png");
-    ResourceManager::loadTexture("bullet", "assets\\bullet.png");
+    ResourceManager::loadTexture("bullet", "assets\\bullet2.png");
     auto& playerTexture = ResourceManager::getTexture("player");
 
     // Spawn player
