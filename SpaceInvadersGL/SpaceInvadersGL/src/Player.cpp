@@ -82,7 +82,8 @@ void Player::tryShoot()
     // spawn at top-center of sprite
     auto pos = m_sprite.getPosition();
     sf::FloatRect bounds = m_sprite.getGlobalBounds();
-    sf::Vector2f spawnPos{ pos.x + bounds.size.length() / 4.f, pos.y - bounds.size.length() / 2.f };
+    auto test = m_sprite.getGlobalBounds().size.x;
+    sf::Vector2f spawnPos{ pos.x + bounds.size.x / 2 , pos.y - bounds.size.y / 2.f };
     m_onShoot(spawnPos);
 
 }
