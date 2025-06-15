@@ -87,7 +87,7 @@ void Player::tryShoot()
     const float bulletW = 30.f;
     const float bulletH = 30.f;
     // player left + half player width  – half bullet width
-    float spawnX = bounds.left + (bounds.width - bulletW) / 2.f;
+    float spawnX = pos.x;
     auto test = m_sprite.getGlobalBounds().size.x;
     sf::Vector2f spawnPos{ pos.x + bounds.size.y / 2 , pos.y - bounds.size.x / 2.f };
     m_onShoot(spawnPos);
