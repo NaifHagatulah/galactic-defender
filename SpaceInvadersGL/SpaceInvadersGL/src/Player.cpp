@@ -84,8 +84,8 @@ void Player::tryShoot()
     sf::FloatRect bounds = m_sprite.getGlobalBounds();
     // bounds.width  == 55
     // bounds.height == 32
-    const float bulletW = 15.f;
-    const float bulletH = 10.f;
+    const float bulletW = 10.f;
+    const float bulletH = 15.f;
     // player left + half player width  – half bullet width
     float spawnX = pos.x + (bounds.size.x - bulletW) / 2.f;
     float spawnY = pos.y - bounds.size.x / 2.f;
