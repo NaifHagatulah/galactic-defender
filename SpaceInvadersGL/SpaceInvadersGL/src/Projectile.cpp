@@ -31,3 +31,7 @@ bool Projectile::isAlive() const
 sf::FloatRect Projectile::getBounds() {
 	return m_sprite.getGlobalBounds();
 }
+
+sf::FloatRect Projectile::getPosition() {
+	return m_sprite.getGlobalBounds();
+}

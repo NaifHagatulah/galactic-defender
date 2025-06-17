@@ -11,4 +11,6 @@ public:
 
 	virtual bool isAlive() const = 0;
 
+	virtual sf::FloatRect getPosition() = 0;
+
 };

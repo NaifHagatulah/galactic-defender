@@ -22,7 +22,7 @@ public:
     void handleInput(const sf::Event& evt);
     void tryShoot();
 
-    sf::FloatRect getPosition();
+    sf::FloatRect getPosition() override;
 
 private:
     std::function<void(sf::Vector2f)> m_onShoot;
