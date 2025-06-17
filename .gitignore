@@ -453,3 +453,21 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+
+
+# Ignore Visual Studio build folders
+x64/Debug/
+[Bb]in/
+[Oo]bj/
+
+# Ignore Visual Studio files
+*.exe
+*.dll
+*.ilk
+*.log
+*.pdb
+*.idb
+
+# Ignore compiler tlog folders
+*.tlog/
