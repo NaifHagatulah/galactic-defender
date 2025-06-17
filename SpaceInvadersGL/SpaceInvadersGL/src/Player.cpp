@@ -109,8 +109,7 @@ sf::FloatRect Player::getPosition() const{
 }
 
 void Player::kill()  {
-    if (m_health == 0)
+    if (m_health < 1)
         m_alive = false;
-    else
-        m_health -= 1;
+    m_health -= 1;
 }
