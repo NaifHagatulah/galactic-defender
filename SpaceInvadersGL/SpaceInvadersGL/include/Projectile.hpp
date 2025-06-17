@@ -18,6 +18,7 @@ public:
     sf::FloatRect getPosition() const override;
 
     bool isAlive() const override;
+    void kill()  override;
 private:
     sf::Sprite      m_sprite;
     sf::Vector2f    m_velocity{ 0.f, 0.f };

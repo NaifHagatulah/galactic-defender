@@ -23,6 +23,7 @@ public:
     void tryShoot();
 
     sf::FloatRect getPosition() const override;
+    void kill()  override;
 
 private:
     std::function<void(sf::Vector2f)> m_onShoot;
@@ -31,6 +32,7 @@ private:
     bool            m_alive{ true };
     float           m_shootCooldown{ 0.f };
     float           m_speed{ 0.f };
+    int             m_health{3};
 
     
 };

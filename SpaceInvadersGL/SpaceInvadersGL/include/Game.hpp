@@ -8,6 +8,7 @@
 #include "GameObject.hpp"
 #include "Player.hpp"
 #include "Projectile.hpp"
+#include "CollisionManager.hpp"
 
 
 static constexpr unsigned WINDOW_WIDTH = 700;

@@ -5,9 +5,9 @@
 class CollisionManager {
 public:
 	CollisionManager() = default;
-	static void run(std::vector<std::unique_ptr<GameObject>> objects);
+	static void run(std::vector<std::unique_ptr<GameObject>>& objects);
 
 private:
-	void broadPhase(const GameObject& obj1, const GameObject& obj2);
-	void narrowPhase(const GameObject& obj1, const GameObject& obj2);
+	static void broadPhase(GameObject& obj1, GameObject& obj2);
+	static void narrowPhase(GameObject& obj1, GameObject& obj2);
 };

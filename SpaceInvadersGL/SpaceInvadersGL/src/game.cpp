@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
+
 Game::Game()
     : m_window(sf::VideoMode({ 700, 700 }), "SFML works!")
 {
@@ -46,6 +47,7 @@ void Game::run() {
         float dt = clock.restart().asSeconds();
         processEvents();
         update(dt);
+        CollisionManager::run(m_objects);
         render();
     }
 }

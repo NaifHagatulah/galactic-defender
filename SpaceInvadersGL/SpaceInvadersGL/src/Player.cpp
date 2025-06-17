@@ -107,3 +107,10 @@ void Player::setShootCallback(std::function<void(sf::Vector2f)> cb) {
 sf::FloatRect Player::getPosition() const{
     return m_sprite.getGlobalBounds();
 }
+
+void Player::kill()  {
+    if (m_health == 0)
+        m_alive = false;
+    else
+        m_health -= 1;
+}
