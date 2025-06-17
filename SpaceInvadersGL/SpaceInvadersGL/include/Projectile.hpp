@@ -6,8 +6,6 @@
 class Projectile : public GameObject
 {
 public:
-    // allow default construction (will be “dead” until properly initialized)
-    sf::FloatRect getBounds();
 
     Projectile(const sf::Texture& texture,
         const sf::Vector2f& position,
