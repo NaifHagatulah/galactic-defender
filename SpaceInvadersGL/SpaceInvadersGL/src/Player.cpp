@@ -104,6 +104,6 @@ void Player::setShootCallback(std::function<void(sf::Vector2f)> cb) {
     m_onShoot = std::move(cb);
 }
 
-sf::FloatRect Player::getPosition() {
+sf::FloatRect Player::getPosition() const{
     return m_sprite.getGlobalBounds();
 }

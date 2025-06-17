@@ -15,7 +15,7 @@ public:
 
     void update(float dt) override;
     void draw(sf::RenderWindow& target) const override; // The 'const' is important!
-    sf::FloatRect getPosition() override;
+    sf::FloatRect getPosition() const override;
 
     bool isAlive() const override;
 private:

@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\CollisionManager.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\playerMovement.cpp" />
@@ -145,6 +146,7 @@
     <Image Include="include\pixil-frame-0.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\CollisionManager.hpp" />
     <ClInclude Include="include\Game.hpp" />
     <ClInclude Include="include\GameObject.hpp" />
     <ClInclude Include="include\playerMovement.hpp" />
