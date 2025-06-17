@@ -82,14 +82,14 @@ void Player::tryShoot()
     // spawn at top-center of sprite
     auto pos = m_sprite.getPosition();
     sf::FloatRect bounds = m_sprite.getGlobalBounds();
-    // bounds.width  == 55
-    // bounds.height == 32
+    // bounds.width  == 10
+    // bounds.height == 15
     const float bulletW = 10.f;
     const float bulletH = 15.f;
     // player left + half player width  – half bullet width
     float spawnX = pos.x + (bounds.size.x - bulletW) / 2.f;
     float spawnY = pos.y - bounds.size.x / 2.f;
-    auto test = m_sprite.getGlobalBounds().size.x;
+   
     sf::Vector2f spawnPos{ spawnX , spawnY };
     m_onShoot(spawnPos);
 
@@ -102,4 +102,8 @@ bool Player::isAlive() const
 
 void Player::setShootCallback(std::function<void(sf::Vector2f)> cb) {
     m_onShoot = std::move(cb);
+}
+
+sf::FloatRect Player::getPosition() {
+    return m_sprite.getGlobalBounds();
 }

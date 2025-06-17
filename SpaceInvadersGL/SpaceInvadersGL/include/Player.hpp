@@ -13,15 +13,16 @@ public:
     ~Player() override = default;
 
     void update(float dt) override;
-    void draw(sf::RenderWindow& target) const override; // The 'const' is important!
-    // Called by Game after constructing Player so that
-// when Player tries to shoot it can notify the spawner.
+    void draw(sf::RenderWindow& target) const override; 
+   
     void setShootCallback(std::function<void(sf::Vector2f /*pos*/)> cb);
     
     bool isAlive() const override;
 
     void handleInput(const sf::Event& evt);
     void tryShoot();
+
+    sf::FloatRect getPosition();
 
 private:
     std::function<void(sf::Vector2f)> m_onShoot;
