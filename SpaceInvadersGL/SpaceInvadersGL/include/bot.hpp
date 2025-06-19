@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include <SFML/Graphics.hpp>
 #include "GameObject.hpp"
 #include "ResourceManager.hpp"
@@ -29,12 +29,13 @@ private:
 
     // Shooting
     std::function<void(sf::Vector2f)> m_onShoot;
-    float m_shootCooldown{ 1.0f };    // seconds between shots
+    float m_shootCooldown{ 1.0f };    
     float m_shootTimer{ 0.f };
 
     // Simple AI state
     enum class State { Patrol, Chase, Flee } m_state{ State::Patrol };
-    float m_patrolDirection{ 1.f };    // 1 = right, -1 = left
-    float m_patrolRange{ 200.f };      // how far from start pos
+    float m_patrolDirection{ 1.f };    
+    float m_patrolRange{ 200.f };      
     sf::Vector2f m_startPos;
 };
+*/
