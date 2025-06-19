@@ -3,16 +3,17 @@
 #include "GameObject.hpp"
 #include "ResourceManager.hpp" 
 #include "Projectile.hpp"
+#include "IUpdateProvider.hpp"
 #include <functional>
 
 class Player : public GameObject
 {
 public:
-    Player(const sf::Texture& texture, const sf::Vector2f& position, float speed);
+    Player(const sf::Texture& texture, const sf::Vector2f& position, float speed, IUpdateProvider& updater);
   
     ~Player() override = default;
 
-    void update(float dt) override;
+    //void update(float dt) override;
     void draw(sf::RenderWindow& target) const override; 
    
     void setShootCallback(std::function<void(sf::Vector2f /*pos*/)> cb);

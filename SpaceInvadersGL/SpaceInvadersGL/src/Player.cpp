@@ -1,8 +1,10 @@
-#include "../include/Player.hpp"
+﻿#include "../include/Player.hpp"
 
 
-Player::Player(const sf::Texture& texture, const sf::Vector2f& position, float speed)
-    : m_sprite(texture)
+
+Player::Player(const sf::Texture& texture, const sf::Vector2f& position, float speed, IUpdateProvider& provider)
+    : GameObject(provider)
+    , m_sprite(texture)
     , m_speed(speed)
 {
 
@@ -13,7 +15,7 @@ void Player::draw(sf::RenderWindow& target) const {
     target.draw(m_sprite);
 }
 
-void Player::update(float dt) {
+/*void Player::update(float dt) {
    
     m_sprite.move(m_velocity * dt);
 
@@ -21,7 +23,7 @@ void Player::update(float dt) {
     {
         m_shootCooldown -= dt;
     }
-}
+}*/
 
 void Player::handleInput(const sf::Event& evt) {
 
@@ -86,7 +88,7 @@ void Player::tryShoot()
     // bounds.height == 15
     const float bulletW = 10.f;
     const float bulletH = 15.f;
-    // player left + half player width  � half bullet width
+    // player left + half player width  – half bullet width
     float spawnX = pos.x + (bounds.size.x - bulletW) / 2.f;
     float spawnY = pos.y - bounds.size.x / 2.f;
    
