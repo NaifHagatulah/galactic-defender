@@ -37,6 +37,5 @@ private:
     float m_patrolDirection{ 1.f };    
     float m_patrolRange{ 200.f };      
     sf::Vector2f m_startPos;
-
 };
 */
