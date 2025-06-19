@@ -75,15 +75,15 @@ void Game::update(float dt) {
 
 void Game::processEvents() {
     
-    // SFML3 style: pollEvent returns std::optional<sf::Event>
+    
     while (auto event = m_window.pollEvent()) {
-        // Close event
+        
         if (event->is<sf::Event::Closed>()) {
             m_window.close();
             continue;
         }
 
-        // Keyboard events
+        
         if (event->is<sf::Event::KeyPressed>() || event->is<sf::Event::KeyReleased>()) {
             auto* player = static_cast<Player*>(m_objects.front().get());
             player->handleInput(*event);
