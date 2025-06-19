@@ -2,5 +2,9 @@
 #include "IUpdateProvider.hpp"
 
 class DefaultUpdateProvider : public IUpdateProvider {
-	void update(GameObject& obj, float dt);
+public:
+    void update(GameObject& obj, float dt) override {
+        // No special behavior; override in specialized providers
+        (void)obj; (void)dt;
+    }
 };
