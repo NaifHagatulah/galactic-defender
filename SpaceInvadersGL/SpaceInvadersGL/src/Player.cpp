@@ -123,3 +123,8 @@ sf::Sprite& Player::getSprite() {
 sf::Vector2f& Player::getVelocity() {
     return  m_velocity;
 }
+
+void Player::reduceCooldown(float dt) {
+    if (m_shootCooldown > 0.f) 
+        m_shootCooldown -= dt;
+}
