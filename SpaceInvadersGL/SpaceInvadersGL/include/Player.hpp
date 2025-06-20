@@ -26,6 +26,11 @@ public:
     sf::FloatRect getPosition() const override;
     void kill()  override;
 
+    sf::Sprite& getSprite();
+    sf::Vector2f& getVelocity();
+    void reduceCooldown(float dt);
+        
+
 private:
     std::function<void(sf::Vector2f)> m_onShoot;
     sf::Sprite      m_sprite;

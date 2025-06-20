@@ -115,3 +115,11 @@ void Player::kill()  {
         m_alive = false;
     m_health -= 1;
 }
+
+sf::Sprite& Player::getSprite() {
+    return m_sprite;
+}
+
+sf::Vector2f& Player::getVelocity() {
+    return  m_velocity;
+}

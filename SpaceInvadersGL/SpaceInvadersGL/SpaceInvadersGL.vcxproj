@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="src\bot.cpp" />
     <ClCompile Include="src\CollisionManager.cpp" />
+    <ClCompile Include="src\DefaultUpdateProvider.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\playerMovement.cpp" />
@@ -149,8 +150,10 @@
   <ItemGroup>
     <ClInclude Include="include\bot.hpp" />
     <ClInclude Include="include\CollisionManager.hpp" />
+    <ClInclude Include="include\DefaultUpdateProvider.hpp" />
     <ClInclude Include="include\Game.hpp" />
     <ClInclude Include="include\GameObject.hpp" />
+    <ClInclude Include="include\IUpdateProvider.hpp" />
     <ClInclude Include="include\playerMovement.hpp" />
     <ClInclude Include="include\ResourceManager.hpp" />
     <ClInclude Include="include\Player.hpp" />
