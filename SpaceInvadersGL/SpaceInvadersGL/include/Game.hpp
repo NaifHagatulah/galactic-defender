@@ -9,6 +9,7 @@
 #include "Player.hpp"
 #include "Projectile.hpp"
 #include "CollisionManager.hpp"
+#include "PlayerUpdateProvider.hpp"
 
 
 static constexpr unsigned WINDOW_WIDTH = 700;
@@ -16,7 +17,10 @@ static constexpr unsigned WINDOW_HEIGHT = 700;
 static constexpr float    BULLET_SPEED = 400.f;
 
 class Game {
+	
+		
 public:
+	PlayerUpdateProvider playerUpdateProvider;
 	Game();
 	void run();
 

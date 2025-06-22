@@ -4,8 +4,9 @@
 #include "GameObject.hpp"
 
 class PlayerUpdateProvider : IUpdateProvider {
-	void update(GameObject& baseObj, float dt) {
-		auto& p = static_cast<Player&>(baseObj);
+public:
+	void update(GameObject& obj, float dt) {
+		auto& p = static_cast<Player&>(obj);
 		p.getSprite().move(p.getVelocity() * dt);
 		p.reduceCooldown(dt);
 	}

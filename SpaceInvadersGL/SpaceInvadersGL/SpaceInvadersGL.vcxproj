@@ -155,6 +155,7 @@
     <ClInclude Include="include\GameObject.hpp" />
     <ClInclude Include="include\IUpdateProvider.hpp" />
     <ClInclude Include="include\playerMovement.hpp" />
+    <ClInclude Include="include\PlayerUpdateProvider.hpp" />
     <ClInclude Include="include\ResourceManager.hpp" />
     <ClInclude Include="include\Player.hpp" />
     <ClInclude Include="include\Projectile.hpp" />

@@ -1,6 +1,7 @@
 ﻿#include "../include/Game.hpp"
 #include <algorithm>
 #include <iostream>
+#include "../include/PlayerUpdateProvider.hpp"
 
 
 Game::Game()
@@ -24,21 +25,6 @@ void Game::render() {
     for (auto& obj : m_objects)
         obj->draw(m_window);
     m_window.display();
-}
-
-void Game::spawnPlayer() {
-    auto& tex = ResourceManager::getTexture("player");
-    sf::Vector2f startPos{ WINDOW_WIDTH / 2.f, WINDOW_HEIGHT - 50.f };
-    float speed = 300.f;
-
-    auto player = std::make_unique<Player>(tex, startPos, speed);
-    // Shoot callback
-    player->setShootCallback(
-        [this](sf::Vector2f pos) {
-            spawnBullet(pos);
-        }
-    );
-    m_objects.push_back(std::move(player));
 }
 
 void Game::run() {
@@ -94,6 +80,23 @@ void Game::processEvents() {
 void Game::spawnBullet(const sf::Vector2f& pos) {
     auto& tex = ResourceManager::getTexture("bullet");
     sf::Vector2f vel{ 0.f, -BULLET_SPEED };
+    //PlayerUpdateProvider test;
     auto bullet = std::make_unique<Projectile>(tex, pos, vel);
     m_objects.push_back(std::move(bullet));
+}
+
+void Game::spawnPlayer() {
+    auto& tex = ResourceManager::getTexture("player");
+    sf::Vector2f startPos{ WINDOW_WIDTH / 2.f, WINDOW_HEIGHT - 50.f };
+    float speed = 300.f;
+    //PlayerUpdateProvider test;
+    
+    auto player = std::make_unique<Player>(tex, startPos, speed, playerUpdateProvider);
+    // Shoot callback
+    player->setShootCallback(
+        [this](sf::Vector2f pos) {
+            spawnBullet(pos);
+        }
+    );
+    m_objects.push_back(std::move(player));
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.hpp"
-class gameObject;
+class GameObject;
 
 class IUpdateProvider {
 public:

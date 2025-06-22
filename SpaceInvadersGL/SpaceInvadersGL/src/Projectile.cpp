@@ -1,8 +1,10 @@
 #include "../include/Projectile.hpp"
 
-Projectile::Projectile(const sf::Texture& texture, const sf::Vector2f& position, const sf::Vector2f& velocity)
-	: m_sprite(texture)
+Projectile::Projectile(const sf::Texture& texture, const sf::Vector2f& position, const sf::Vector2f& velocity, IUpdateProvider& updater)
+	: GameObject(updater)
+	, m_sprite(texture)
 	, m_velocity(velocity)
+	
 {
 	m_sprite.setPosition(position);
 }
@@ -14,7 +16,7 @@ void Projectile::draw(sf::RenderWindow& target) const
 
 }
 
-void Projectile::update(float dt) 
+/*void Projectile::update(float dt)
 {
 	m_sprite.move(m_velocity * dt);
 	auto pos = m_sprite.getPosition();
@@ -22,6 +24,7 @@ void Projectile::update(float dt)
 		m_alive = false;
 
 }
+*/
 
 bool Projectile::isAlive() const
 {
@@ -35,4 +38,11 @@ sf::FloatRect Projectile::getPosition() const {
 
 void Projectile::kill()  {
 	m_alive = false;
+}
+
+sf::Sprite& Projectile::getSprite() { return m_sprite; }
+sf::Vector2f Projectile::getVelocity() const { return m_velocity; }
+bool Projectile::isOutOfBounds() const {
+	auto pos = m_sprite.getPosition();
+	return (pos.x < 0.f || pos.x > 3000 || pos.y < 0.f || pos.y > -300);
 }
