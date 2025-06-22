@@ -5,13 +5,14 @@
 #include "IUpdateProvider.hpp"
 
 
+
 class Projectile : public GameObject
 {
 public:
 
-    Projectile(const sf::Texture& texture,
-        const sf::Vector2f& position,
-        const sf::Vector2f& velocity,
+    Projectile(const sf::Texture& tex,
+        const sf::Vector2f& pos,
+        const sf::Vector2f& vel,
         IUpdateProvider& updater);
 
     ~Projectile() override = default;
