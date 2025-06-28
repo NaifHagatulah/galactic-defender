@@ -1,12 +1,14 @@
 #include "../include/Projectile.hpp"
 
-Projectile::Projectile(const sf::Texture& texture, const sf::Vector2f& position, const sf::Vector2f& velocity, IUpdateProvider& updater)
+Projectile::Projectile(const sf::Texture& tex,
+	const sf::Vector2f& pos,
+	const sf::Vector2f& vel,
+	IUpdateProvider& updater)
 	: GameObject(updater)
-	, m_sprite(texture)
-	, m_velocity(velocity)
-	
+	, m_sprite(tex)
+	, m_velocity(vel)
 {
-	m_sprite.setPosition(position);
+	m_sprite.setPosition(pos);
 }
 
 void Projectile::draw(sf::RenderWindow& target) const 

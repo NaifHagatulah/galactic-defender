@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\ProjectileUpdateProvider.hpp" />
     <ClCompile Include="src\bot.cpp" />
     <ClCompile Include="src\CollisionManager.cpp" />
     <ClCompile Include="src\DefaultUpdateProvider.cpp" />

@@ -10,6 +10,7 @@
 #include "Projectile.hpp"
 #include "CollisionManager.hpp"
 #include "PlayerUpdateProvider.hpp"
+#include "ProjectileUpdateProvider.hpp"
 
 
 static constexpr unsigned WINDOW_WIDTH = 700;
@@ -21,6 +22,7 @@ class Game {
 		
 public:
 	PlayerUpdateProvider playerUpdateProvider;
+	ProjectileUpdateProvider projectileUpdateProvider;
 	Game();
 	void run();
 

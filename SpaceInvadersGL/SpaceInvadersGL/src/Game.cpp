@@ -81,7 +81,7 @@ void Game::spawnBullet(const sf::Vector2f& pos) {
     auto& tex = ResourceManager::getTexture("bullet");
     sf::Vector2f vel{ 0.f, -BULLET_SPEED };
     //PlayerUpdateProvider test;
-    auto bullet = std::make_unique<Projectile>(tex, pos, vel);
+    auto bullet = std::make_unique<Projectile>(tex, pos, vel, playerUpdateProvider);
     m_objects.push_back(std::move(bullet));
 }
 
