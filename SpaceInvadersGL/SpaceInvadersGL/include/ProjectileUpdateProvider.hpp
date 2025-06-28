@@ -6,10 +6,8 @@
 
 class ProjectileUpdateProvider : public IUpdateProvider {
 public:
-    ProjectileUpdateProvider(const sf::FloatRect& bounds)
-        : m_bounds(bounds)   
-    {
-    }
+    ProjectileUpdateProvider() = default;            
+    void setBounds(const sf::FloatRect& b) { m_bounds = b; }
 
     void update(GameObject& baseObj, float dt) override {
         auto& p = static_cast<Projectile&>(baseObj);

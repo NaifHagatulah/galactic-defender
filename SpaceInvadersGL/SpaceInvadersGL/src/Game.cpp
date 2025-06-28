@@ -2,12 +2,17 @@
 #include <algorithm>
 #include <iostream>
 #include "../include/PlayerUpdateProvider.hpp"
+#include <SFML/System.hpp>
+#include <SFML/System.hpp>  // defines sf::FloatRect
 
-
+#include <SFML/Graphics.hpp> // also pulls in FloatRect transitively
 Game::Game()
     : m_window(sf::VideoMode({ 700, 700 }), "SFML works!")
 {
     m_window.setFramerateLimit(60);
+    sf::FloatRect playArea(sf::Vector2f(0.f, 0.f), sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT));
+
+    projectileUpdateProvider.setBounds(playArea);
 
     // Load textures
     ResourceManager::loadTexture("player", "assets\\green.png");

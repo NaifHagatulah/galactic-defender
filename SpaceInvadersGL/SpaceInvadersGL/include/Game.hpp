@@ -14,20 +14,24 @@
 
 
 
-static constexpr unsigned WINDOW_WIDTH = 700;
-static constexpr unsigned WINDOW_HEIGHT = 700;
+static constexpr float WINDOW_WIDTH = 700.f;
+static constexpr float WINDOW_HEIGHT = 700.f;
 static constexpr float    BULLET_SPEED = 400.f;
 
 class Game {
 	
 		
 public:
-	PlayerUpdateProvider playerUpdateProvider;
-	ProjectileUpdateProvider projectileUpdateProvider;
+	
 	Game();
 	void run();
 
+	PlayerUpdateProvider playerUpdateProvider;
+
+	ProjectileUpdateProvider projectileUpdateProvider;
+
 private:
+	
 	void processEvents();
 	void update(float dt);
 	void render();
