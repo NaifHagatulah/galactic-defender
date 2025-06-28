@@ -21,7 +21,7 @@ int main()
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
-    sf::RenderWindow window(sf::VideoMode({ 700, 700 }), "SFML works!");
+   /* sf::RenderWindow window(sf::VideoMode({700, 700}), "SFML works!");
     window.setFramerateLimit(60);
     
     // Load your texture once
@@ -72,6 +72,7 @@ int main()
 
         window.display(); 
     }
+    */
 
 }
 

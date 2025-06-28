@@ -13,6 +13,7 @@
 #include "ProjectileUpdateProvider.hpp"
 
 
+
 static constexpr unsigned WINDOW_WIDTH = 700;
 static constexpr unsigned WINDOW_HEIGHT = 700;
 static constexpr float    BULLET_SPEED = 400.f;

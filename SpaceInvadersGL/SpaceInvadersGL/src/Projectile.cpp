@@ -46,5 +46,5 @@ sf::Sprite& Projectile::getSprite() { return m_sprite; }
 sf::Vector2f Projectile::getVelocity() const { return m_velocity; }
 bool Projectile::isOutOfBounds() const {
 	auto pos = m_sprite.getPosition();
-	return (pos.x < 0.f || pos.x > 3000 || pos.y < 0.f || pos.y > -300);
+	return false; //(pos.x < 0.f || pos.x > 3000 || pos.y < 0.f || pos.y > -300);
 }

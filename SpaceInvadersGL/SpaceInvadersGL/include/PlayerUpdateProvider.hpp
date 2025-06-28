@@ -3,7 +3,7 @@
 #include "IUpdateProvider.hpp"
 #include "GameObject.hpp"
 
-class PlayerUpdateProvider : IUpdateProvider {
+class PlayerUpdateProvider : public IUpdateProvider {
 public:
 	void update(GameObject& obj, float dt) {
 		auto& p = static_cast<Player&>(obj);
